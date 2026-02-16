@@ -23,6 +23,22 @@ export const metadata: Metadata = {
   title: "Nicholas Van De Pas — Builder & Engineer",
   description:
     "Former subsea engineer. Now building location-independent products with AI. Documenting what I build and how I think about technology.",
+  metadataBase: new URL("https://nvdp.dev"),
+  openGraph: {
+    title: "Nicholas Van De Pas — Builder & Engineer",
+    description:
+      "Former subsea engineer. Now building location-independent products with AI. Documenting what I build and how I think about technology.",
+    url: "https://nvdp.dev",
+    siteName: "Nicholas Van De Pas",
+    locale: "en_NZ",
+    type: "website",
+  },
+  twitter: {
+    card: "summary",
+    title: "Nicholas Van De Pas — Builder & Engineer",
+    description:
+      "Former subsea engineer. Now building location-independent products with AI. Documenting what I build and how I think about technology.",
+  },
 };
 
 export default function RootLayout({

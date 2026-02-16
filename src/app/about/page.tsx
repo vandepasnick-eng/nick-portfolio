@@ -1,3 +1,4 @@
+import Image from "next/image";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
@@ -13,9 +14,15 @@ export default function AboutPage() {
         About
       </h1>
 
-      {/* Photo placeholder */}
-      <div className="mt-8 flex h-48 w-48 items-center justify-center rounded-lg bg-surface">
-        <span className="text-sm text-text-secondary">Photo</span>
+      <div className="mt-8 h-48 w-48 overflow-hidden rounded-lg">
+        <Image
+          src="/images/headshot.jpg"
+          alt="Nicholas Van De Pas"
+          width={192}
+          height={192}
+          className="h-full w-full object-cover object-top"
+          priority
+        />
       </div>
 
       <div className="mt-10 space-y-6 text-base leading-relaxed">

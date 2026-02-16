@@ -1,4 +1,5 @@
 import { notFound } from "next/navigation";
+import Image from "next/image";
 import Link from "next/link";
 import { getAllBuilds, getBuildBySlug } from "@/lib/builds";
 import type { Metadata } from "next";
@@ -52,12 +53,25 @@ export default async function BuildDetailPage({
         <p className="mt-3 text-lg text-text-secondary">{build.description}</p>
       </header>
 
-      {/* Placeholder image */}
-      <div className="mt-8 flex aspect-video items-center justify-center rounded-lg bg-surface">
-        <span className="font-heading text-sm text-text-secondary">
-          Screenshot placeholder
-        </span>
-      </div>
+      {/* Build image */}
+      {build.image ? (
+        <div className="relative mt-8 aspect-video overflow-hidden rounded-lg">
+          <Image
+            src={build.image}
+            alt={build.title}
+            fill
+            className="object-cover"
+            sizes="(max-width: 768px) 100vw, 768px"
+            priority
+          />
+        </div>
+      ) : (
+        <div className="mt-8 flex aspect-video items-center justify-center rounded-lg bg-surface">
+          <span className="font-heading text-sm text-text-secondary">
+            Screenshot placeholder
+          </span>
+        </div>
+      )}
 
       {/* Stack */}
       <div className="mt-8 flex flex-wrap gap-2">

@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Link from "next/link";
 import { Build } from "@/lib/builds";
 
@@ -7,11 +8,23 @@ export default function BuildCard({ build }: { build: Build }) {
       href={`/builds/${build.slug}`}
       className="group block overflow-hidden rounded-lg border border-border bg-background transition-shadow hover:shadow-md"
     >
-      <div className="flex aspect-video items-center justify-center bg-surface">
-        <span className="px-4 text-center font-heading text-sm font-medium text-text-secondary">
-          {build.title}
-        </span>
-      </div>
+      {build.image ? (
+        <div className="relative aspect-video">
+          <Image
+            src={build.image}
+            alt={build.title}
+            fill
+            className="object-cover"
+            sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+          />
+        </div>
+      ) : (
+        <div className="flex aspect-video items-center justify-center bg-surface">
+          <span className="px-4 text-center font-heading text-sm font-medium text-text-secondary">
+            {build.title}
+          </span>
+        </div>
+      )}
       <div className="p-5">
         <div className="flex items-center gap-3">
           <time className="text-xs text-text-secondary">{build.date}</time>
